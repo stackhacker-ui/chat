@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "routes": [
+    {
+      "pattern": "chat-template.stackhacker.io",
+      "custom_domain": true
+    }
+  ],
+  "env": {
+    "preview": {
+      "routes": [],
+      "vars": {
+        "NUXT_DEV_USER_NAME": "preview",
+        "NUXT_DEV_USER_EMAIL": "preview@example.com",
+        "NUXT_DEV_USER_AVATAR": "https://github.com/identicons/preview.png"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "stackhacker-ui-chat-preview",
+          "database_id": "a866ce7c-93dc-4773-88c5-5574e73a1002"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "BLOB",
+          "bucket_name": "stackhacker-ui-chat-preview"
+        }
+      ]
+    }
+  }
+}
