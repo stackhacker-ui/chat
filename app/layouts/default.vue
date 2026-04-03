@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import { LazyModalConfirm } from '#components'
+import { onKeyStroke } from '@vueuse/core'
+
+import { toast } from 'vue-sonner'
 
 const route = useRoute()
-const toast = useToast()
-const overlay = useOverlay()
-const { loggedIn, openInPopup } = useUserSession()
+const { loggedIn } = useUserSession()
 
 const open = ref(false)
-
-const deleteModal = overlay.create(LazyModalConfirm, {
-  props: {
-    title: 'Delete chat',
-    description: 'Are you sure you want to delete this chat? This cannot be undone.'
-  }
-})
+const deleteModalOpen = ref(false)
+let pendingDeleteId: string | null = null
 
 const { data: chats, refresh: refreshChats } = await useFetch('/api/chats', {
   key: 'chats',
@@ -29,147 +24,74 @@ const { data: chats, refresh: refreshChats } = await useFetch('/api/chats', {
 onNuxtReady(async () => {
   const first10 = (chats.value || []).slice(0, 10)
   for (const chat of first10) {
-    // prefetch the chat and let the browser cache it
     await $fetch(`/api/chats/${chat.id}`)
   }
 })
 
 watch(loggedIn, () => {
   refreshChats()
-
   open.value = false
 })
 
 const { groups } = useChats(chats)
 
-const items = computed(() => groups.value?.flatMap((group) => {
-  return [{
-    label: group.label,
-    type: 'label' as const
-  }, ...group.items.map(item => ({
-    ...item,
-    slot: 'chat' as const,
-    icon: undefined,
-    class: item.label === 'Untitled' ? 'text-muted' : ''
-  }))]
-}))
+function deleteChat(id: string) {
+  pendingDeleteId = id
+  deleteModalOpen.value = true
+}
 
-async function deleteChat(id: string) {
-  const instance = deleteModal.open()
-  const result = await instance.result
-  if (!result) {
-    return
-  }
+async function onDeleteConfirm() {
+  if (!pendingDeleteId) return
+
+  const id = pendingDeleteId
+  pendingDeleteId = null
 
   await $fetch(`/api/chats/${id}`, { method: 'DELETE' })
 
-  toast.add({
-    title: 'Chat deleted',
-    description: 'Your chat has been deleted',
-    icon: 'i-lucide-trash'
+  toast.success('Chat deleted', {
+    description: 'Your chat has been deleted'
   })
 
   refreshChats()
 
   if (route.params.id === id) {
+    await nextTick()
     navigateTo('/')
   }
 }
 
-defineShortcuts({
-  c: () => {
-    navigateTo('/')
+onKeyStroke('c', (e) => {
+  if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
+  navigateTo('/')
+})
+
+onKeyStroke('k', (e) => {
+  if (e.metaKey || e.ctrlKey) {
+    e.preventDefault()
+    open.value = !open.value
   }
 })
 </script>
 
 <template>
-  <UDashboardGroup unit="rem">
-    <UDashboardSidebar
-      id="default"
-      v-model:open="open"
-      :min-size="12"
-      collapsible
-      resizable
-      class="border-r-0 py-4"
-    >
-      <template #header="{ collapsed }">
-        <NuxtLink to="/" class="flex items-end gap-0.5">
-          <Logo class="h-8 w-auto shrink-0" />
-          <span v-if="!collapsed" class="text-xl font-bold text-highlighted">Chat</span>
-        </NuxtLink>
+  <SidebarProvider
+    :style="{
+      '--header-height': 'calc(var(--spacing) * 12)'
+    }"
+  >
+    <AppSidebar :groups="groups" @delete-chat="deleteChat" @search="open = true" />
 
-        <div v-if="!collapsed" class="flex items-center gap-1.5 ms-auto">
-          <UDashboardSearchButton collapsed />
-        </div>
-      </template>
+    <AppDashboardSearch v-model:open="open" :groups="groups" />
 
-      <template #default="{ collapsed }">
-        <div class="flex flex-col gap-1.5">
-          <UButton
-            v-bind="collapsed ? { icon: 'i-lucide-plus' } : { label: 'New chat' }"
-            variant="soft"
-            block
-            to="/"
-            @click="open = false"
-          />
-
-          <template v-if="collapsed">
-            <UDashboardSearchButton collapsed />
-          </template>
-        </div>
-
-        <UNavigationMenu
-          v-if="!collapsed"
-          :items="items"
-          :collapsed="collapsed"
-          orientation="vertical"
-          :ui="{ link: 'overflow-hidden' }"
-        >
-          <template #chat-trailing="{ item }">
-            <div class="flex -mr-1.25 translate-x-full group-hover:translate-x-0 transition-transform">
-              <UButton
-                icon="i-lucide-x"
-                color="neutral"
-                variant="ghost"
-                size="xs"
-                class="text-muted hover:text-primary hover:bg-accented/50 focus-visible:bg-accented/50 p-0.5"
-                tabindex="-1"
-                @click.stop.prevent="deleteChat((item as any).id)"
-              />
-            </div>
-          </template>
-        </UNavigationMenu>
-      </template>
-
-      <template #footer="{ collapsed }">
-        <UserMenu v-if="loggedIn" :collapsed="collapsed" />
-        <UButton
-          v-else
-          :label="collapsed ? '' : 'Login with GitHub'"
-          icon="i-simple-icons-github"
-          color="neutral"
-          variant="ghost"
-          class="w-full"
-          @click="openInPopup('/auth/github')"
-        />
-      </template>
-    </UDashboardSidebar>
-
-    <UDashboardSearch
-      placeholder="Search chats..."
-      :groups="[{
-        id: 'links',
-        items: [{
-          label: 'New chat',
-          to: '/',
-          icon: 'i-lucide-square-pen'
-        }]
-      }, ...groups]"
-    />
-
-    <div class="flex-1 flex m-4 lg:ml-0 rounded-lg ring ring-default bg-default/75 shadow min-w-0">
+    <SidebarInset class="min-w-0 max-h-svh md:max-h-[calc(100svh-1rem)]">
       <slot />
-    </div>
-  </UDashboardGroup>
+    </SidebarInset>
+
+    <ModalConfirm
+      v-model:open="deleteModalOpen"
+      title="Delete chat"
+      description="Are you sure you want to delete this chat? This cannot be undone."
+      @confirm="onDeleteConfirm"
+    />
+  </SidebarProvider>
 </template>

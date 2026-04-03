@@ -4,27 +4,26 @@ defineProps<{
   description: string
 }>()
 
-const emit = defineEmits<{ close: [boolean] }>()
+const open = defineModel<boolean>('open', { required: true })
+
+const emit = defineEmits<{ confirm: [] }>()
 </script>
 
 <template>
-  <UModal
-    :title="title"
-    :description="description"
-    :ui="{
-      footer: 'flex-row-reverse justify-start'
-    }"
-    :close="false"
-    :dismissible="false"
-  >
-    <template #footer>
-      <UButton label="Delete" @click="emit('close', true)" />
-      <UButton
-        color="neutral"
-        variant="ghost"
-        label="Cancel"
-        @click="emit('close', false)"
-      />
-    </template>
-  </UModal>
+  <Dialog v-model:open="open" :modal="true">
+    <DialogContent :show-close-button="false" @interact-outside.prevent @escape-key-down.prevent>
+      <DialogHeader>
+        <DialogTitle>{{ title }}</DialogTitle>
+        <DialogDescription>{{ description }}</DialogDescription>
+      </DialogHeader>
+      <DialogFooter class="flex-row-reverse justify-start">
+        <Button @click="emit('confirm'); open = false">
+          Delete
+        </Button>
+        <Button variant="ghost" @click="open = false">
+          Cancel
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
 </template>

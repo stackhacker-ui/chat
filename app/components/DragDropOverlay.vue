@@ -3,9 +3,11 @@ import { Motion } from 'motion-v'
 
 const { loggedIn } = useUserSession()
 
-defineProps<{
-  show: boolean
-}>()
+withDefaults(defineProps<{
+  show?: boolean
+}>(), {
+  show: false
+})
 </script>
 
 <template>
@@ -33,7 +35,7 @@ defineProps<{
             delay: 0
           }"
         >
-          <UIcon name="i-lucide-file-text" class="size-12" />
+          <LucideIcon name="i-lucide-file-text" class="size-12" />
         </Motion>
         <Motion
           :initial="{
@@ -53,7 +55,7 @@ defineProps<{
             delay: 0.03
           }"
         >
-          <UIcon name="i-lucide-file" class="size-14" />
+          <LucideIcon name="i-lucide-file" class="size-14" />
         </Motion>
 
         <Motion
@@ -74,7 +76,7 @@ defineProps<{
             delay: 0.06
           }"
         >
-          <UIcon name="i-lucide-file-spreadsheet" class="size-12" />
+          <LucideIcon name="i-lucide-file-spreadsheet" class="size-12" />
         </Motion>
       </div>
 

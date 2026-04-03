@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Paperclip } from 'lucide-vue-next'
+
 const { loggedIn } = useUserSession()
 
 defineProps<{
@@ -7,19 +9,23 @@ defineProps<{
 </script>
 
 <template>
-  <UTooltip
-    :content="{
-      side: 'top'
-    }"
-    :text="!loggedIn ? 'You need to be logged in to upload files' : ''"
-  >
-    <UButton
-      icon="i-lucide-paperclip"
-      variant="ghost"
-      color="neutral"
-      size="sm"
-      :disabled="!loggedIn"
-      @click="open()"
-    />
-  </UTooltip>
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger as-child>
+        <span class="inline-flex">
+          <Button
+            variant="ghost"
+            size="sm"
+            :disabled="!loggedIn"
+            @click="open()"
+          >
+            <Paperclip class="size-4" />
+          </Button>
+        </span>
+      </TooltipTrigger>
+      <TooltipContent v-if="!loggedIn" side="top">
+        You need to be logged in to upload files
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 </template>

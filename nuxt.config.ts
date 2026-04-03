@@ -1,19 +1,36 @@
+import tailwindcss from '@tailwindcss/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui',
+    '@nuxt/icon',
+    '@nuxtjs/color-mode',
     '@nuxtjs/mdc',
     '@nuxthub/core',
     'nuxt-auth-utils',
-    'nuxt-charts'
+    'nuxt-charts',
+    'shadcn-nuxt'
+  ],
+
+  components: [
+    { path: '~/components/prose', pathPrefix: false, global: true },
+    '~/components'
   ],
 
   devtools: {
     enabled: true
   },
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    'vue-sonner/style.css',
+    '~/assets/css/main.css'
+  ],
+
+  colorMode: {
+    classSuffix: '',
+    disableTransition: true
+  },
 
   mdc: {
     headings: {
@@ -22,14 +39,24 @@ export default defineNuxtConfig({
     highlight: {
       // noApiRoute: true
       shikiEngine: 'javascript'
+    },
+    components: {
+      map: {
+        root: 'span'
+      }
     }
+  },
+
+  sourcemap: {
+    server: false,
+    client: false
   },
 
   experimental: {
     viewTransition: true
   },
 
-  compatibilityDate: '2024-07-11',
+  compatibilityDate: '2025-04-01',
 
   nitro: {
     experimental: {
@@ -38,13 +65,53 @@ export default defineNuxtConfig({
   },
 
   hub: {
-    db: 'sqlite',
-    blob: true
+    db: {
+      dialect: 'sqlite',
+      driver: 'd1',
+      connection: { databaseId: 'de41a684-5cf2-40a6-b1d4-c7ef4206547e' },
+      applyMigrationsDuringBuild: false
+    },
+    blob: {
+      driver: 'cloudflare-r2',
+      binding: 'BLOB',
+      bucketName: 'shadcn-nuxt-ui-chat'
+    }
   },
 
   vite: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plugins: [tailwindcss() as any],
+    build: {
+      chunkSizeWarningLimit: 1500
+    },
+    css: {
+      devSourcemap: false
+    },
     optimizeDeps: {
-      include: ['striptags']
+      include: [
+        'striptags',
+        '@ai-sdk/vue',
+        'ai',
+        'shiki-stream/vue',
+        'shiki',
+        'shiki/engine-javascript.mjs'
+      ]
+    }
+  },
+
+  hooks: {
+    // Suppress sourcemap warnings from upstream plugins (nuxt:module-preload-polyfill,
+    // @tailwindcss/vite) that do not generate sourcemaps for their transformations.
+    'vite:extendConfig'(config) {
+      const customLogger = config.customLogger as
+        { warn: (...args: unknown[]) => void } | undefined
+      if (customLogger) {
+        const originalWarn = customLogger.warn.bind(customLogger)
+        customLogger.warn = (msg: unknown, ...args: unknown[]) => {
+          if (typeof msg === 'string' && msg.includes('Sourcemap is likely to be incorrect')) return
+          originalWarn(msg, ...args)
+        }
+      }
     }
   },
 
@@ -55,5 +122,10 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  shadcn: {
+    prefix: '',
+    componentDir: './app/components/ui'
   }
 })

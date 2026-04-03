@@ -71,81 +71,72 @@ const quickChats = [
   },
   {
     label: 'Show me a chart of sales data',
-    icon: 'i-lucide-line-chart'
+    icon: 'i-lucide-chart-line'
   }
 ]
 </script>
 
 <template>
-  <UDashboardPanel
-    id="home"
-    class="min-h-0"
-    :ui="{ body: 'p-0 sm:p-0' }"
-  >
-    <template #header>
-      <DashboardNavbar />
-    </template>
+  <div class="flex flex-col flex-1 min-h-0">
+    <AppDashboardNavbar />
 
-    <template #body>
-      <div ref="dropzoneRef" class="flex flex-1">
-        <DragDropOverlay :show="isDragging" />
+    <div ref="dropzoneRef" class="flex flex-1">
+      <DragDropOverlay :show="isDragging" />
 
-        <UContainer class="flex-1 flex flex-col justify-center gap-4 sm:gap-6 py-8">
-          <h1 class="text-3xl sm:text-4xl text-highlighted font-bold">
-            How can I help you today?
-          </h1>
+      <div class="flex-1 flex flex-col justify-center gap-4 sm:gap-6 py-8 max-w-3xl mx-auto w-full px-4 sm:px-6">
+        <h1 class="text-3xl sm:text-4xl text-foreground font-bold">
+          How can I help you today?
+        </h1>
 
-          <UChatPrompt
-            v-model="input"
-            :status="loading ? 'streaming' : 'ready'"
-            :disabled="isUploading"
-            class="[view-transition-name:chat-prompt]"
-            variant="subtle"
-            :ui="{ base: 'px-1.5' }"
-            @submit="onSubmit"
+        <ChatPrompt
+          v-model="input"
+          :disabled="isUploading"
+          autofocus
+          class="[view-transition-name:chat-prompt]"
+          @submit="onSubmit"
+        >
+          <template v-if="files.length > 0" #header>
+            <div class="flex flex-wrap gap-2">
+              <FileAvatar
+                v-for="fileWithStatus in files"
+                :key="fileWithStatus.id"
+                :name="fileWithStatus.file.name"
+                :type="fileWithStatus.file.type"
+                :preview-url="fileWithStatus.previewUrl"
+                :status="fileWithStatus.status"
+                :error="fileWithStatus.error"
+                removable
+                @remove="removeFile(fileWithStatus.id)"
+              />
+            </div>
+          </template>
+
+          <template #footer>
+            <div class="flex items-center gap-1">
+              <FileUploadButton :open="open" />
+
+              <ModelSelect />
+            </div>
+
+            <ChatPromptSubmit :disabled="isUploading" />
+          </template>
+        </ChatPrompt>
+
+        <div class="flex flex-wrap gap-2">
+          <Button
+            v-for="quickChat in quickChats"
+            :key="quickChat.label"
+            variant="outline"
+            size="sm"
+            class="rounded-full"
+            @click="createChat(quickChat.label)"
           >
-            <template v-if="files.length > 0" #header>
-              <div class="flex flex-wrap gap-2">
-                <FileAvatar
-                  v-for="fileWithStatus in files"
-                  :key="fileWithStatus.id"
-                  :name="fileWithStatus.file.name"
-                  :type="fileWithStatus.file.type"
-                  :preview-url="fileWithStatus.previewUrl"
-                  :status="fileWithStatus.status"
-                  :error="fileWithStatus.error"
-                  removable
-                  @remove="removeFile(fileWithStatus.id)"
-                />
-              </div>
-            </template>
-
-            <template #footer>
-              <div class="flex items-center gap-1">
-                <FileUploadButton :open="open" />
-
-                <ModelSelect />
-              </div>
-
-              <UChatPromptSubmit color="neutral" size="sm" :disabled="isUploading" />
-            </template>
-          </UChatPrompt>
-
-          <div class="flex flex-wrap gap-2">
-            <UButton
-              v-for="quickChat in quickChats"
-              :key="quickChat.label"
-              :icon="quickChat.icon"
-              :label="quickChat.label"
-              size="sm"
-              color="neutral"
-              variant="outline"
-              class="rounded-full"
-              @click="createChat(quickChat.label)"
-            />
-          </div>
-        </UContainer>
+            <LucideIcon v-if="quickChat.icon.startsWith('i-lucide-')" :name="quickChat.icon" class="size-4" />
+            <Icon v-else :name="quickChat.icon" class="size-4" />
+            {{ quickChat.label }}
+          </Button>
+        </div>
       </div>
-    </template>
-  </UDashboardPanel>
+    </div>
+  </div>
 </template>

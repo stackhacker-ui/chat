@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ShikiCachedRenderer } from 'shiki-stream/vue'
+import { useColorMode } from '@vueuse/core'
 
-const colorMode = useColorMode()
+const mode = useColorMode()
 const highlighter = await useHighlighter()
 const props = defineProps<{
   code: string
@@ -27,7 +28,7 @@ const lang = computed(() => {
   }
 })
 const key = computed(() => {
-  return `${lang.value}-${colorMode.value}`
+  return `${lang.value}-${mode.value}`
 })
 </script>
 
@@ -38,7 +39,7 @@ const key = computed(() => {
       :highlighter="highlighter"
       :code="trimmedCode"
       :lang="lang"
-      :theme="colorMode.value === 'dark' ? 'material-theme-palenight' : 'material-theme-lighter'"
+      :theme="mode === 'dark' ? 'material-theme-palenight' : 'material-theme-lighter'"
     />
   </ProsePre>
 </template>

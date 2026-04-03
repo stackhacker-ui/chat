@@ -1,3 +1,6 @@
+import { useDropZone, useFileDialog } from '@vueuse/core'
+import { toast } from 'vue-sonner'
+
 interface BlobResult {
   pathname: string
   url?: string
@@ -9,23 +12,19 @@ function createObjectUrl(file: File): string {
   return URL.createObjectURL(file)
 }
 
-function fileToInput(file: File): HTMLInputElement {
-  const dataTransfer = new DataTransfer()
-  dataTransfer.items.add(file)
+async function uploadFile(url: string, file: File, method: 'PUT' | 'POST' = 'PUT'): Promise<BlobResult> {
+  const formData = new FormData()
+  formData.append('files', file)
 
-  const input = document.createElement('input')
-  input.type = 'file'
-  input.files = dataTransfer.files
-
-  return input
+  return await $fetch<BlobResult>(url, {
+    method,
+    body: formData
+  })
 }
 
 export function useFileUploadWithStatus(chatId: string) {
   const files = ref<FileWithStatus[]>([])
-  const toast = useToast()
   const { loggedIn } = useUserSession()
-
-  const upload = useUpload(`/api/upload/${chatId}`, { method: 'PUT' })
 
   async function uploadFiles(newFiles: File[]) {
     if (!loggedIn.value) {
@@ -46,14 +45,7 @@ export function useFileUploadWithStatus(chatId: string) {
       if (index === -1) return
 
       try {
-        const input = fileToInput(fileWithStatus.file)
-        const response = await upload(input) as BlobResult | BlobResult[] | undefined
-
-        if (!response) {
-          throw new Error('Upload failed')
-        }
-
-        const result = Array.isArray(response) ? response[0] : response
+        const result = await uploadFile(`/api/upload/${chatId}`, fileWithStatus.file)
 
         if (!result) {
           throw new Error('Upload failed')
@@ -69,11 +61,8 @@ export function useFileUploadWithStatus(chatId: string) {
         const errorMessage = (error as { data?: { message?: string } }).data?.message
           || (error as Error).message
           || 'Upload failed'
-        toast.add({
-          title: 'Upload failed',
-          description: errorMessage,
-          icon: 'i-lucide-alert-circle',
-          color: 'error'
+        toast.error('Upload failed', {
+          description: errorMessage
         })
         files.value[index] = {
           ...files.value[index]!,
@@ -86,10 +75,24 @@ export function useFileUploadWithStatus(chatId: string) {
     await Promise.allSettled(uploadPromises)
   }
 
-  const { dropzoneRef, isDragging, open } = useFileUpload({
+  const dropzoneRef = ref<HTMLElement>()
+  const { isOverDropZone: isDragging } = useDropZone(dropzoneRef, {
+    onDrop: (droppedFiles) => {
+      if (droppedFiles) {
+        uploadFiles(Array.from(droppedFiles))
+      }
+    }
+  })
+
+  const { open, onChange } = useFileDialog({
     accept: FILE_UPLOAD_CONFIG.acceptPattern,
-    multiple: true,
-    onUpdate: uploadFiles
+    multiple: true
+  })
+
+  onChange((fileList) => {
+    if (fileList) {
+      uploadFiles(Array.from(fileList))
+    }
   })
 
   const isUploading = computed(() =>

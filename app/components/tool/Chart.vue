@@ -11,7 +11,7 @@ const color = computed(() => {
 
 const icon = computed(() => {
   return ({
-    'input-available': 'i-lucide-line-chart',
+    'input-available': 'i-lucide-chart-line',
     'output-error': 'i-lucide-triangle-alert'
   })[props.invocation.state as string] || 'i-lucide-loader-circle'
 })
@@ -58,7 +58,7 @@ const formatValue = (value: string | number | undefined): string => {
 <template>
   <div v-if="invocation.state === 'output-available'" class="my-5">
     <div v-if="invocation.output.title" class="flex items-center gap-2 mb-2">
-      <UIcon name="i-lucide-line-chart" class="size-5 text-primary shrink-0" />
+      <LucideIcon name="i-lucide-chart-line" class="size-5 text-primary shrink-0" />
       <div class="min-w-0">
         <h3 class="text-lg font-semibold truncate">
           {{ invocation.output.title }}
@@ -85,8 +85,8 @@ const formatValue = (value: string | number | undefined): string => {
         :show-tooltip="true"
       >
         <template #tooltip="{ values }">
-          <div class="bg-muted/50 rounded-sm px-2 py-1 shadow-lg backdrop-blur-sm max-w-xs ring ring-offset-2 ring-offset-(--ui-bg) ring-default border border-default">
-            <div v-if="values && values[invocation.output.xKey]" class="text-sm font-semibold text-highlighted mb-2">
+          <div class="bg-muted/50 rounded-sm px-2 py-1 shadow-lg backdrop-blur-sm max-w-xs ring ring-offset-2 ring-offset-background ring-ring/20 border border-border">
+            <div v-if="values && values[invocation.output.xKey]" class="text-sm font-semibold text-foreground mb-2">
               {{ values[invocation.output.xKey] }}
             </div>
             <div class="space-y-1.5">
@@ -102,7 +102,7 @@ const formatValue = (value: string | number | undefined): string => {
                   />
                   <span class="text-sm text-muted truncate">{{ serie.name }}</span>
                 </div>
-                <span class="text-sm font-semibold text-highlighted shrink-0">
+                <span class="text-sm font-semibold text-foreground shrink-0">
                   {{ formatValue(values?.[serie.key]) }}
                 </span>
               </div>
@@ -116,10 +116,9 @@ const formatValue = (value: string | number | undefined): string => {
   <div v-else class="rounded-xl px-5 py-4 my-5" :class="color">
     <div class="flex items-center justify-center h-44">
       <div class="text-center">
-        <UIcon
+        <LucideIcon
           :name="icon"
-          class="size-8 mx-auto mb-2"
-          :class="[invocation.state === 'input-streaming' && 'animate-spin']"
+          :class="`size-8 mx-auto mb-2 ${invocation.state === 'input-streaming' ? 'animate-spin' : ''}`"
         />
         <div class="text-sm">
           {{ message }}
@@ -136,9 +135,9 @@ const formatValue = (value: string | number | undefined): string => {
   --vis-tooltip-border-color: transparent !important;
 
   --vis-axis-grid-color: rgba(255, 255, 255, 0) !important;
-  --vis-axis-tick-label-color: var(--ui-text-muted) !important;
-  --vis-axis-label-color: var(--ui-text-toned) !important;
-  --vis-legend-label-color: var(--ui-text-muted) !important;
+  --vis-axis-tick-label-color: var(--muted-foreground) !important;
+  --vis-axis-label-color: var(--foreground) !important;
+  --vis-legend-label-color: var(--muted-foreground) !important;
 
   --dot-pattern-color: #111827;
 }

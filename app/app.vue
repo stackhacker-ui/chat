@@ -1,7 +1,10 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
+import { useColorMode } from '@vueuse/core'
+import { Toaster } from '@/components/ui/sonner'
 
-const color = computed(() => colorMode.value === 'dark' ? '#1b1718' : 'white')
+const mode = useColorMode()
+
+const color = computed(() => mode.value === 'dark' ? '#1b1718' : 'white')
 
 useHead({
   meta: [
@@ -18,7 +21,7 @@ useHead({
 })
 
 const title = 'Nuxt AI Chatbot template'
-const description = 'A full-featured, hackable Nuxt AI chatbot template made with Nuxt UI.'
+const description = 'A full-featured, hackable Nuxt AI chatbot template.'
 
 useSeoMeta({
   title,
@@ -32,11 +35,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp :toaster="{ position: 'top-right' }" :tooltip="{ delayDuration: 200 }">
-    <NuxtLoadingIndicator color="var(--ui-primary)" />
+  <TooltipProvider :delay-duration="200">
+    <NuxtLoadingIndicator color="var(--color-primary)" />
 
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </UApp>
+
+    <ClientOnly>
+      <Toaster position="top-right" />
+    </ClientOnly>
+  </TooltipProvider>
 </template>

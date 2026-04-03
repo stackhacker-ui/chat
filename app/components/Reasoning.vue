@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ChevronDown } from 'lucide-vue-next'
+
 const { isStreaming = false } = defineProps<{
   text: string
   isStreaming?: boolean
@@ -20,22 +22,21 @@ function cleanMarkdown(text: string): string {
 </script>
 
 <template>
-  <UCollapsible v-model:open="open" class="flex flex-col gap-1 my-5">
-    <UButton
-      class="p-0 group"
-      color="neutral"
-      variant="link"
-      trailing-icon="i-lucide-chevron-down"
-      :ui="{
-        trailingIcon: text.length > 0 ? 'group-data-[state=open]:rotate-180 transition-transform duration-200' : 'hidden'
-      }"
-      :label="isStreaming ? 'Thinking...' : 'Thoughts'"
-    />
+  <Collapsible v-model:open="open" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 w-full">
+    <CollapsibleTrigger as-child>
+      <Button class="p-0! group text-muted-foreground" variant="link">
+        {{ isStreaming ? 'Thinking...' : 'Thoughts' }}
+        <ChevronDown
+          v-if="text.length > 0"
+          class="size-4 group-data-[state=open]:rotate-180 transition-transform duration-200"
+        />
+      </Button>
+    </CollapsibleTrigger>
 
-    <template #content>
+    <CollapsibleContent>
       <div v-for="(value, index) in cleanMarkdown(text).split('\n').filter(Boolean)" :key="index">
-        <span class="whitespace-pre-wrap text-sm text-muted font-normal">{{ value }}</span>
+        <span class="whitespace-pre-wrap text-sm text-muted-foreground font-normal">{{ value }}</span>
       </div>
-    </template>
-  </UCollapsible>
+    </CollapsibleContent>
+  </Collapsible>
 </template>
