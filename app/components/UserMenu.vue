@@ -55,17 +55,11 @@ function logout() {
           Appearance
         </DropdownMenuSubTrigger>
         <DropdownMenuSubContent>
-          <DropdownMenuCheckboxItem
-            :checked="mode === 'light'"
-            @select.prevent="mode = 'light'"
-          >
+          <DropdownMenuCheckboxItem :checked="mode === 'light'" @select.prevent="mode = 'light'">
             <LucideIcon name="i-lucide-sun" class="size-4" />
             Light
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            :checked="mode === 'dark'"
-            @select.prevent="mode = 'dark'"
-          >
+          <DropdownMenuCheckboxItem :checked="mode === 'dark'" @select.prevent="mode = 'dark'">
             <LucideIcon name="i-lucide-moon" class="size-4" />
             Dark
           </DropdownMenuCheckboxItem>
@@ -81,28 +75,63 @@ function logout() {
           Templates
         </DropdownMenuSubTrigger>
         <DropdownMenuSubContent>
-          <DropdownMenuItem as="a" href="https://starter-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-starter.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Starter
           </DropdownMenuItem>
-          <DropdownMenuItem as="a" href="https://landing-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-landing.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Landing
           </DropdownMenuItem>
-          <DropdownMenuItem as="a" href="https://docs-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-docs.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Docs
           </DropdownMenuItem>
-          <DropdownMenuItem as="a" href="https://saas-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-saas.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             SaaS
           </DropdownMenuItem>
-          <DropdownMenuItem as="a" href="https://dashboard-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-dashboard.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Dashboard
           </DropdownMenuItem>
           <DropdownMenuCheckboxItem :checked="true" disabled>
             Chat
           </DropdownMenuCheckboxItem>
-          <DropdownMenuItem as="a" href="https://portfolio-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-portfolio.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Portfolio
           </DropdownMenuItem>
-          <DropdownMenuItem as="a" href="https://changelog-template.nuxt.dev/" target="_blank">
+          <DropdownMenuItem
+            as="a"
+            href="https://shadcn-nuxt-ui-changelog.stackhacker.io/"
+            target="_blank"
+            disabled
+          >
             Changelog
           </DropdownMenuItem>
         </DropdownMenuSubContent>
@@ -111,11 +140,11 @@ function logout() {
       <DropdownMenuSeparator />
 
       <!-- Documentation & GitHub -->
-      <DropdownMenuItem as="a" href="https://ui.nuxt.com/docs/getting-started/installation/nuxt" target="_blank">
+      <DropdownMenuItem as="a" href="https://shadcn-nuxt-ui.stackhacker.io/" target="_blank">
         <LucideIcon name="i-lucide-book-open" class="size-4" />
         Documentation
       </DropdownMenuItem>
-      <DropdownMenuItem as="a" href="https://github.com/nuxt-ui-templates/chat" target="_blank">
+      <DropdownMenuItem as="a" href="https://github.com/shadcn-nuxt-ui/chat" target="_blank">
         <Icon name="i-simple-icons-github" class="size-4" />
         GitHub repository
       </DropdownMenuItem>

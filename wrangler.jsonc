@@ -8,6 +8,7 @@
   ],
   "env": {
     "preview": {
+      "routes": [],
       "d1_databases": [
         {
           "binding": "DB",
