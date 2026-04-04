@@ -4,7 +4,7 @@ import { and, eq } from 'drizzle-orm'
 const DEV_PROVIDER_ID = 'dev-user'
 
 export default defineNitroPlugin((nitroApp) => {
-  if (!import.meta.dev) return
+  if (!import.meta.dev && !process.env.NUXT_DEV_USER_NAME) return
 
   const name = process.env.NUXT_DEV_USER_NAME
   const email = process.env.NUXT_DEV_USER_EMAIL

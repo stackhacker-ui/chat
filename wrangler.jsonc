@@ -9,6 +9,11 @@
   "env": {
     "preview": {
       "routes": [],
+      "vars": {
+        "NUXT_DEV_USER_NAME": "preview",
+        "NUXT_DEV_USER_EMAIL": "preview@example.com",
+        "NUXT_DEV_USER_AVATAR": "https://github.com/identicons/preview.png"
+      },
       "d1_databases": [
         {
           "binding": "DB",
