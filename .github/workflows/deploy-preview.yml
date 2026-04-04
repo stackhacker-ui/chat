@@ -1,10 +1,13 @@
 name: deploy
 on:
-  push:
+  pull_request:
     branches: [main]
 jobs:
-  production:
+  preview:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -17,12 +20,21 @@ jobs:
         run: pnpm build
         env:
           NITRO_PRESET: cloudflare-module
+          CLOUDFLARE_ENV: preview
           NODE_OPTIONS: --max-old-space-size=4096
-      - name: Deploy
+      - name: Upload Preview Version
+        id: preview
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: .output
           preCommands: wrangler d1 migrations apply DB --remote --config server/wrangler.json
-          command: deploy
+          command: versions upload
+      - name: Comment Preview URL
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: deploy-preview
+          message: |
+            **Preview Deployment**
+            ${{ steps.preview.outputs.deployment-url }}
