@@ -39,7 +39,7 @@
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.1",
     "lucide-vue-next": "^0.577.0",
-    "motion-v": "^1.10.3",
+    "motion-v": "^2.2.1",
     "nuxt": "^4.4.2",
     "nuxt-auth-utils": "^0.5.29",
     "nuxt-charts": "^2.1.3",
