@@ -60,8 +60,8 @@ importers:
         specifier: ^0.45.1
         version: 0.45.1(@libsql/client@0.17.2)(@opentelemetry/api@1.9.0)(pg@8.20.0)
       lucide-vue-next:
-        specifier: ^0.577.0
-        version: 0.577.0(vue@3.5.30(typescript@5.9.3))
+        specifier: ^1.0.0
+        version: 1.0.0(vue@3.5.30(typescript@5.9.3))
       motion-v:
         specifier: ^1.10.3
         version: 1.10.3(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
@@ -5133,8 +5133,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-vue-next@0.577.0:
-    resolution: {integrity: sha512-py05bAfv9SHVJqscbiOnjcnLlEmOffA58a+7XhZuFxrs6txe1E8VoR1ngWGTYO+9aVKABAz8l3ee3PqiQN9QPA==}
+  lucide-vue-next@1.0.0:
+    resolution: {integrity: sha512-V6SPvx1IHTj/UY+FrIYWV5faISsPSb8BnWSFDxAtezWKvWc9ZZ40PDrdu1/Qb5vg4lHWr1hs1BAMGVGm6V1Xdg==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -12008,7 +12008,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-vue-next@0.577.0(vue@3.5.30(typescript@5.9.3)):
+  lucide-vue-next@1.0.0(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       vue: 3.5.30(typescript@5.9.3)
 
@@ -14022,7 +14022,7 @@ snapshots:
       cac: 6.7.14
       defu: 6.1.4
       empathic: 2.0.0
-      hookable: 6.0.1
+      hookable: 6.1.0
       import-without-cache: 0.2.5
       obug: 2.1.1
       picomatch: 4.0.3
