@@ -5,6 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@vue/compiler-sfc': 3.5.33
   brace-expansion: ^5.0.9
   defu: ^6.1.7
   esbuild: ^0.25.12
@@ -3880,7 +3881,7 @@ packages:
   eslint-processor-vue-blocks@2.0.0:
     resolution: {integrity: sha512-u4W0CJwGoWY3bjXAuFpc/b6eK3NQEI8MoeW7ritKj3G3z/WtHrKjkqf+wk8mPEy5rlMGS+k6AZYOw2XBoN/02Q==}
     peerDependencies:
-      '@vue/compiler-sfc': ^3.3.0
+      '@vue/compiler-sfc': 3.5.33
       eslint: '>=9.0.0'
 
   eslint-scope@9.1.2:
@@ -6533,7 +6534,7 @@ packages:
     resolution: {integrity: sha512-9+kmUTGbKMyW9Asoy98IXXYIzrTMT7JDAdpDDeEkorHvybpUvBI2wsrSM5jFOXrFydpzRFJ9vAh+80DN2PGu9w==}
     peerDependencies:
       '@pinia/colada': '>=0.21.2'
-      '@vue/compiler-sfc': ^3.5.17
+      '@vue/compiler-sfc': 3.5.33
       pinia: ^3.0.4
       vue: ^3.5.0
     peerDependenciesMeta:
