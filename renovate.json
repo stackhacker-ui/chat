@@ -1,13 +1,72 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>nuxt/renovate-config-nuxt"
+    "github>nuxt/renovate-config-nuxt",
+    ":approveMajorUpdates"
   ],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [{
-    "matchDepTypes": ["resolutions"],
-    "enabled": false
-  }],
-  "postUpdateOptions": ["pnpmDedupe"]
+  "automergeType": "pr",
+  "ignoreTests": false,
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "description": "Keep unclassified non-major updates individual",
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest", "lockFileMaintenance"],
+      "groupName": null,
+      "groupSlug": null
+    },
+    {
+      "description": "Keep major updates individual",
+      "matchUpdateTypes": ["major"],
+      "groupName": null,
+      "groupSlug": null,
+      "automerge": false
+    },
+    {
+      "description": "Wait three days for npm releases",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days",
+      "schedule": ["at any time"]
+    },
+    {
+      "description": "Automerge non-major updates after CI",
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest", "lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "description": "Group Nuxt core minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["nuxt"],
+      "groupName": "Nuxt core",
+      "groupSlug": "nuxt-core"
+    },
+    {
+      "description": "Group shadcn and Reka minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["shadcn-nuxt", "shadcn-vue", "shadcn-vue-registry", "reka-ui"],
+      "groupName": "shadcn and Reka",
+      "groupSlug": "shadcn-reka"
+    },
+    {
+      "description": "Group Tailwind minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/*"],
+      "groupName": "Tailwind",
+      "groupSlug": "tailwind"
+    },
+    {
+      "description": "Group AI SDK minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["ai", "@ai-sdk/*"],
+      "groupName": "AI SDK",
+      "groupSlug": "ai-sdk"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "dependencyDashboardApproval": false,
+    "groupName": null,
+    "groupSlug": null,
+    "minimumReleaseAge": null,
+    "prCreation": "immediate",
+    "schedule": []
+  }
 }
