@@ -45,7 +45,7 @@
     "lucide-vue-next": "^0.577.0",
     "motion-v": "^1.10.3",
     "nuxt": "^4.5.1",
-    "nuxt-auth-utils": "^0.5.29",
+    "nuxt-auth-utils": "^0.5.30",
     "nuxt-charts": "^2.1.4",
     "pg": "^8.19.0",
     "reka-ui": "^2.9.0",
