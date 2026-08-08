@@ -71,7 +71,7 @@
   },
   "pnpm": {
     "overrides": {
-      "@vue/compiler-sfc": "3.5.33",
+      "@vue/compiler-sfc": "3.5.40",
       "esbuild": "^0.28.1"
     }
   },
