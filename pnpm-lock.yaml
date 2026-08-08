@@ -75,8 +75,8 @@ importers:
         specifier: ^0.5.30
         version: 0.5.30(magic-string@1.1.0)(magicast@0.5.4)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.2)(tsx@4.21.0)(yaml@2.9.0)))
       nuxt-charts:
-        specifier: ^2.1.4
-        version: 2.1.4(vue@3.5.41(typescript@5.9.3))
+        specifier: ^2.2.0
+        version: 2.2.0(vue@3.5.41(typescript@5.9.3))
       pg:
         specifier: ^8.19.0
         version: 8.20.0
@@ -4947,8 +4947,8 @@ packages:
       '@simplewebauthn/server':
         optional: true
 
-  nuxt-charts@2.1.4:
-    resolution: {integrity: sha512-uoTj+2zWc8ctAGNJw5buHobw/EGMM0qZw/Js+cySX8/3B6R6hwJ47KgeMQJt3LPSaQ2i4H7x8DmJPPSdUFhdJQ==}
+  nuxt-charts@2.2.0:
+    resolution: {integrity: sha512-QYurK/hkP8RA3jKNP7ngRY04tiF9slRh35QU8bFQpcVlRKe7fBXeXLzdx8dZIS2deGUahqthZeChD4zasJ13Pg==}
 
   nuxt@4.5.2:
     resolution: {integrity: sha512-tR3fcqeHlHmmkLMpIg3V7Y+1ltr302lW8djMw/iy+myfo7QSSz+BVJDuQhg5j73b9oteSyBfOKTDYTgvMtj6TA==}
@@ -6485,8 +6485,8 @@ packages:
   vue-bundle-renderer@2.3.1:
     resolution: {integrity: sha512-7F4LNMopUw5RgYWo4zCmVUHCc6aQRC6dCKHUYkM/n+fux4AUGdL1x6m5A515WWyFysRRN7cx3hBzVqoisfRfzw==}
 
-  vue-chrts@2.1.4:
-    resolution: {integrity: sha512-FGSJD/CfBHgEMMLe8A7DfZrwdNBD+LwfyjQWBqNPe6KG+aUAPMhsRDayNjaCX/TGYs1KAmVJ6lqPsmXdofkIdQ==}
+  vue-chrts@2.2.0:
+    resolution: {integrity: sha512-zznUtug992GgpDj/dXuGSkkrY+SokfE5qz4q/IgloRPo0Mo95n+qVrekI6+aOMMbVolBI8SvKKLQ6sGY+VgfEA==}
     peerDependencies:
       vue: ^3.5.13
 
@@ -12051,9 +12051,9 @@ snapshots:
       - rolldown
       - unplugin
 
-  nuxt-charts@2.1.4(vue@3.5.41(typescript@5.9.3)):
+  nuxt-charts@2.2.0(vue@3.5.41(typescript@5.9.3)):
     dependencies:
-      vue-chrts: 2.1.4(vue@3.5.41(typescript@5.9.3))
+      vue-chrts: 2.2.0(vue@3.5.41(typescript@5.9.3))
     transitivePeerDependencies:
       - supports-color
       - vue
@@ -13857,7 +13857,7 @@ snapshots:
     dependencies:
       ufo: 1.6.4
 
-  vue-chrts@2.1.4(vue@3.5.41(typescript@5.9.3)):
+  vue-chrts@2.2.0(vue@3.5.41(typescript@5.9.3)):
     dependencies:
       '@turf/boolean-point-in-polygon': 7.3.5
       '@unovis/ts': 1.6.5
