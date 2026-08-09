@@ -15,7 +15,7 @@ importers:
         specifier: ^3.0.165
         version: 3.0.165(zod@4.4.3)
       '@ai-sdk/vue':
-        specifier: ^3.0.243
+        specifier: ^3.0.244
         version: 3.0.244(vue@3.5.41(typescript@5.9.3))(zod@4.4.3)
       '@iconify-json/logos':
         specifier: ^1.2.12
@@ -48,7 +48,7 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.5.41(typescript@5.9.3))
       ai:
-        specifier: ^6.0.243
+        specifier: ^6.0.244
         version: 6.0.244(zod@4.4.3)
       class-variance-authority:
         specifier: ^0.7.1
