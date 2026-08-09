@@ -42,7 +42,7 @@ importers:
         specifier: ^0.22.2
         version: 0.22.2(magic-string@1.1.0)(magicast@0.5.4)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.0(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.2)(tsx@4.21.0)(yaml@2.9.0)))
       '@vercel/blob':
-        specifier: ^2.6.1
+        specifier: ^2.7.0
         version: 2.7.0
       '@vueuse/core':
         specifier: ^14.4.0
