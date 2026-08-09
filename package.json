@@ -64,7 +64,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "drizzle-kit": "^0.31.10",
-    "eslint": "^10.0.2",
+    "eslint": "^10.8.0",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.3.9",
     "wrangler": "^4.86.0"
