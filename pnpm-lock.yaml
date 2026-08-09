@@ -90,8 +90,8 @@ importers:
         specifier: ^3.23.0
         version: 3.23.0
       shiki-stream:
-        specifier: ^0.1.4
-        version: 0.1.4(vue@3.5.41(typescript@5.9.3))
+        specifier: ^0.1.5
+        version: 0.1.5(vue@3.5.41(typescript@5.9.3))
       striptags:
         specifier: 3.2.0
         version: 3.2.0
@@ -1939,6 +1939,24 @@ packages:
   '@shikijs/primitive@4.4.2':
     resolution: {integrity: sha512-l6fQQKsOMlz72n38fztmSgZ76MO6KSWuw8o+GJ+FhmqrpC9pIOJNQNXGgbb5yX2AwpzlEHwsaLPnk/8o4Fm+rA==}
     engines: {node: '>=20'}
+
+  '@shikijs/stream@4.4.2':
+    resolution: {integrity: sha512-j0gyWbn86iMCoTRwi0ye0vM6v5+TkUWN9fkVexVFoOdKMeOcYRqXKjWHP92Gue9HcRpfloi6B2CIrzIn3StnRg==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: ^19.0.0
+      solid-js: ^1.9.0
+      svelte: ^5.0.0-0
+      vue: ^3.2.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      solid-js:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
 
   '@shikijs/themes@3.23.0':
     resolution: {integrity: sha512-5qySYa1ZgAT18HR/ypENL9cUSGOeI2x+4IvYJu4JgVJdizn6kG4ia5Q1jDEOi7gTbN4RbuYtmHh0W3eccOrjMA==}
@@ -5737,8 +5755,9 @@ packages:
     resolution: {integrity: sha512-w1aiOKwKuRgtwAReIIj89puqg+I7GvX4IbLrvmhXbzQsj1+Zwi4VO3+fa6ZF91TWSjIxoEkKnMeHcLEODK5ZXA==}
     engines: {node: '>= 0.4'}
 
-  shiki-stream@0.1.4:
-    resolution: {integrity: sha512-4pz6JGSDmVTTkPJ/ueixHkFAXY4ySCc+unvCaDZV7hqq/sdJZirRxgIXSuNSKgiFlGTgRR97sdu2R8K55sPsrw==}
+  shiki-stream@0.1.5:
+    resolution: {integrity: sha512-DzkqVlqf02Tp4zTFNgJp+3rOG2RkuoONBq+Pm2sHslAlJ5M0QbR1devn4dr9SgcBTrtHTf6Rqyj3wVJi0g16Bw==}
+    deprecated: shiki-stream is now @shikijs/stream, please migrate by renaming the package
     peerDependencies:
       react: ^19.0.0
       solid-js: ^1.9.0
@@ -8692,6 +8711,12 @@ snapshots:
       '@shikijs/types': 4.4.2
       '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.5
+
+  '@shikijs/stream@4.4.2(vue@3.5.41(typescript@5.9.3))':
+    dependencies:
+      '@shikijs/core': 4.4.2
+    optionalDependencies:
+      vue: 3.5.41(typescript@5.9.3)
 
   '@shikijs/themes@3.23.0':
     dependencies:
@@ -13134,11 +13159,13 @@ snapshots:
 
   shell-quote@1.10.0: {}
 
-  shiki-stream@0.1.4(vue@3.5.41(typescript@5.9.3)):
+  shiki-stream@0.1.5(vue@3.5.41(typescript@5.9.3)):
     dependencies:
-      '@shikijs/core': 3.23.0
+      '@shikijs/stream': 4.4.2(vue@3.5.41(typescript@5.9.3))
     optionalDependencies:
       vue: 3.5.41(typescript@5.9.3)
+    transitivePeerDependencies:
+      - svelte
 
   shiki@3.23.0:
     dependencies:
