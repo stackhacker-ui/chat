@@ -124,7 +124,7 @@ importers:
         specifier: ^0.31.10
         version: 0.31.10
       eslint:
-        specifier: ^10.8.0
+        specifier: ^10.8.1
         version: 10.8.1(jiti@2.7.0)
       typescript:
         specifier: ^5.9.3
