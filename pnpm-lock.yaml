@@ -81,11 +81,11 @@ importers:
         specifier: ^8.22.0
         version: 8.22.0
       reka-ui:
-        specifier: ^2.9.0
-        version: 2.9.2(vue@3.5.41(typescript@5.9.3))
+        specifier: ^2.10.1
+        version: 2.10.1(vue@3.5.41(typescript@5.9.3))
       shadcn-nuxt:
-        specifier: ^2.4.3
-        version: 2.4.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)(magicast@0.5.4)
+        specifier: ^2.8.1
+        version: 2.8.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)(magicast@0.5.4)
       shiki:
         specifier: ^3.23.0
         version: 3.23.0
@@ -5589,8 +5589,8 @@ packages:
   rehype-sort-attributes@5.0.1:
     resolution: {integrity: sha512-Bxo+AKUIELcnnAZwJDt5zUDDRpt4uzhfz9d0PVGhcxYWsbFj5Cv35xuWxu5r1LeYNFNhgGqsr9Q2QiIOM/Qctg==}
 
-  reka-ui@2.9.2:
-    resolution: {integrity: sha512-/t4e6y1hcG+uDuRfpg6tbMz3uUEvRzNco6NeYTufoJeUghy5Iosxos5YL/p+ieAsid84sdMX9OrgDqpEuCJhBw==}
+  reka-ui@2.10.1:
+    resolution: {integrity: sha512-drcOQ4rQtDYAcGCsyQBqQg8QQ+H3B+zDaMJU0h8KPEPMa7g9BHu3zcOi4OB39XJSWizceFoNO0Z9tctSGLOXqg==}
     peerDependencies:
       vue: '>= 3.4.0'
 
@@ -5783,8 +5783,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn-nuxt@2.4.3:
-    resolution: {integrity: sha512-OY1vV3aQCmbgTn/DFIyaSOxvIosUeWKT98eLBabgYc8K6V99IdTRJ5zlbFj0olwTHHwXTs8pGvDK9CGkn/pY2g==}
+  shadcn-nuxt@2.8.2:
+    resolution: {integrity: sha512-MjHCs7tAO/xJDk80JUeHe2QtkOAN3a/qEK5zX4UTrZY0q1/pFglBdf88OUC+w0SNZJBIeCMjdth57ucK74hM5g==}
 
   sharp@0.35.2:
     resolution: {integrity: sha512-FVtFjtBCMiJS6yb5CX7Sop45WFMpeGw6oRKuJnXYgf/f1ms/D7LE/ZUSNxnW7rZ/dbslQWYkoqFHGPaDBtaK4w==}
@@ -12929,7 +12929,7 @@ snapshots:
       '@types/hast': 3.0.5
       unist-util-visit: 5.1.0
 
-  reka-ui@2.9.2(vue@3.5.41(typescript@5.9.3)):
+  reka-ui@2.10.1(vue@3.5.41(typescript@5.9.3)):
     dependencies:
       '@floating-ui/dom': 1.7.6
       '@floating-ui/vue': 1.1.11(vue@3.5.41(typescript@5.9.3))
@@ -13237,7 +13237,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn-nuxt@2.4.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)(magicast@0.5.4):
+  shadcn-nuxt@2.8.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)(magicast@0.5.4):
     dependencies:
       '@nuxt/kit': 3.21.2(magicast@0.5.4)
       oxc-parser: 0.102.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)
