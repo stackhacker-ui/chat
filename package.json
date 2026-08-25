@@ -25,8 +25,8 @@
     "deploy:preview": "NITRO_PRESET=cloudflare-module CLOUDFLARE_ENV=preview nuxt build && wrangler d1 migrations apply DB --remote --config .output/server/wrangler.json --env preview && wrangler --cwd .output deploy --env preview"
   },
   "dependencies": {
-    "@ai-sdk/gateway": "^3.0.177",
-    "@ai-sdk/vue": "^3.0.261",
+    "@ai-sdk/gateway": "^3.0.179",
+    "@ai-sdk/vue": "^3.0.264",
     "@iconify-json/logos": "^1.2.13",
     "@iconify-json/lucide": "^1.2.124",
     "@iconify-json/simple-icons": "^1.2.93",
@@ -37,7 +37,7 @@
     "@nuxtjs/mdc": "^0.23.1",
     "@vercel/blob": "^2.8.0",
     "@vueuse/core": "^14.4.0",
-    "ai": "^6.0.261",
+    "ai": "^6.0.264",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
