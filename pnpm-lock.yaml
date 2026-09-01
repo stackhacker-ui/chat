@@ -108,7 +108,7 @@ importers:
         specifier: ^2.0.9
         version: 2.0.9(9d9653c0b2753548f6380da8f8c7981e)
       zod:
-        specifier: ^4.5.2
+        specifier: ^4.5.4
         version: 4.5.4
     devDependencies:
       '@nuxt/eslint':
