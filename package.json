@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@ai-sdk/gateway": "^3.0.186",
-    "@ai-sdk/vue": "^3.0.273",
+    "@ai-sdk/vue": "^3.0.274",
     "@iconify-json/logos": "^1.2.13",
     "@iconify-json/lucide": "^1.2.128",
     "@iconify-json/simple-icons": "^1.2.94",
@@ -37,7 +37,7 @@
     "@nuxtjs/mdc": "^0.23.1",
     "@vercel/blob": "^2.8.0",
     "@vueuse/core": "^14.4.0",
-    "ai": "^6.0.273",
+    "ai": "^6.0.274",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
