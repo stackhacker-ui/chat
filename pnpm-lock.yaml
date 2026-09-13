@@ -13,10 +13,10 @@ importers:
     dependencies:
       '@ai-sdk/gateway':
         specifier: ^3.0.191
-        version: 3.0.192(zod@4.5.4)
+        version: 3.0.192(zod@4.6.4)
       '@ai-sdk/vue':
         specifier: ^3.0.280
-        version: 3.0.281(vue@3.5.41(typescript@5.9.3))(zod@4.5.4)
+        version: 3.0.281(vue@3.5.41(typescript@5.9.3))(zod@4.6.4)
       '@iconify-json/logos':
         specifier: ^1.2.14
         version: 1.2.14
@@ -49,7 +49,7 @@ importers:
         version: 14.4.0(vue@3.5.41(typescript@5.9.3))
       ai:
         specifier: ^6.0.280
-        version: 6.0.281(zod@4.5.4)
+        version: 6.0.281(zod@4.6.4)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -108,8 +108,8 @@ importers:
         specifier: ^2.0.9
         version: 2.0.9(e4b45f8f4234e0ad74d214c91f41d5b2)
       zod:
-        specifier: ^4.5.4
-        version: 4.5.4
+        specifier: ^4.6.1
+        version: 4.6.4
     devDependencies:
       '@nuxt/eslint':
         specifier: ^1.17.0
@@ -6821,8 +6821,8 @@ packages:
   zod@4.1.11:
     resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
 
-  zod@4.5.4:
-    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
+  zod@4.6.4:
+    resolution: {integrity: sha512-AXSD6hvGdvRjajG/l1cC+d6IrhH+sjmPKtYeQdJIK8MFJl3LyClzS+o/YsVC+zQZPupAaeH5skwwm8YqYH7BqA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6834,29 +6834,29 @@ snapshots:
       '@phc/format': 1.0.0
       '@poppinss/utils': 6.10.1
 
-  '@ai-sdk/gateway@3.0.192(zod@4.5.4)':
+  '@ai-sdk/gateway@3.0.192(zod@4.6.4)':
     dependencies:
       '@ai-sdk/provider': 3.0.16
-      '@ai-sdk/provider-utils': 4.0.51(zod@4.5.4)
+      '@ai-sdk/provider-utils': 4.0.51(zod@4.6.4)
       '@vercel/oidc': 3.2.0
-      zod: 4.5.4
+      zod: 4.6.4
 
-  '@ai-sdk/provider-utils@4.0.51(zod@4.5.4)':
+  '@ai-sdk/provider-utils@4.0.51(zod@4.6.4)':
     dependencies:
       '@ai-sdk/provider': 3.0.16
       '@standard-schema/spec': 1.1.0
       eventsource-parser: 3.1.0
       undici: 6.28.0
-      zod: 4.5.4
+      zod: 4.6.4
 
   '@ai-sdk/provider@3.0.16':
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/vue@3.0.281(vue@3.5.41(typescript@5.9.3))(zod@4.5.4)':
+  '@ai-sdk/vue@3.0.281(vue@3.5.41(typescript@5.9.3))(zod@4.6.4)':
     dependencies:
-      '@ai-sdk/provider-utils': 4.0.51(zod@4.5.4)
-      ai: 6.0.281(zod@4.5.4)
+      '@ai-sdk/provider-utils': 4.0.51(zod@4.6.4)
+      ai: 6.0.281(zod@4.6.4)
       swrv: 1.1.0(vue@3.5.41(typescript@5.9.3))
       vue: 3.5.41(typescript@5.9.3)
     transitivePeerDependencies:
@@ -8243,7 +8243,7 @@ snapshots:
       ufo: 1.6.4
       uncrypto: 0.1.3
       unstorage: 1.17.5(@vercel/blob@2.8.0)(db0@0.3.4(@libsql/client@0.18.0)(drizzle-orm@0.45.2(@libsql/client@0.18.0)(@opentelemetry/api@1.9.0)(pg@8.23.0)))(ioredis@5.11.1)
-      zod: 4.5.4
+      zod: 4.6.4
     optionalDependencies:
       '@vercel/blob': 2.8.0
     transitivePeerDependencies:
@@ -9748,13 +9748,13 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@6.0.281(zod@4.5.4):
+  ai@6.0.281(zod@4.6.4):
     dependencies:
-      '@ai-sdk/gateway': 3.0.192(zod@4.5.4)
+      '@ai-sdk/gateway': 3.0.192(zod@4.6.4)
       '@ai-sdk/provider': 3.0.16
-      '@ai-sdk/provider-utils': 4.0.51(zod@4.5.4)
+      '@ai-sdk/provider-utils': 4.0.51(zod@4.6.4)
       '@opentelemetry/api': 1.9.0
-      zod: 4.5.4
+      zod: 4.6.4
 
   ajv@6.14.0:
     dependencies:
@@ -14307,6 +14307,6 @@ snapshots:
 
   zod@4.1.11: {}
 
-  zod@4.5.4: {}
+  zod@4.6.4: {}
 
   zwitch@2.0.4: {}
