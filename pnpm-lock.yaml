@@ -24,7 +24,7 @@ importers:
         specifier: ^1.2.135
         version: 1.2.136
       '@iconify-json/simple-icons':
-        specifier: ^1.2.96
+        specifier: ^1.2.97
         version: 1.2.97
       '@libsql/client':
         specifier: ^0.18.0
