@@ -44,7 +44,7 @@
     "drizzle-orm": "^0.45.4",
     "lucide-vue-next": "^0.577.0",
     "motion-v": "^1.10.3",
-    "nuxt": "^4.6.1",
+    "nuxt": "^4.6.2",
     "nuxt-auth-utils": "^0.5.31",
     "nuxt-charts": "^2.2.3",
     "pg": "^8.23.1",
