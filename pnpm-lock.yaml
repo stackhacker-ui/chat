@@ -12,10 +12,10 @@ importers:
   .:
     dependencies:
       '@ai-sdk/gateway':
-        specifier: ^3.0.218
+        specifier: ^3.0.219
         version: 3.0.220(zod@4.6.7)
       '@ai-sdk/vue':
-        specifier: ^3.0.311
+        specifier: ^3.0.312
         version: 3.0.314(vue@3.5.44(typescript@5.9.3))(zod@4.6.7)
       '@iconify-json/logos':
         specifier: ^1.2.17
@@ -48,7 +48,7 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.5.44(typescript@5.9.3))
       ai:
-        specifier: ^6.0.311
+        specifier: ^6.0.312
         version: 6.0.314(zod@4.6.7)
       class-variance-authority:
         specifier: ^0.7.1
