@@ -33,7 +33,7 @@
     "@libsql/client": "^0.18.0",
     "@nuxt/icon": "^2.6.1",
     "@nuxthub/core": "^0.10.12",
-    "@nuxtjs/color-mode": "^4.0.1",
+    "@nuxtjs/color-mode": "^4.1.0",
     "@nuxtjs/mdc": "^0.23.2",
     "@vercel/blob": "^2.8.2",
     "@vueuse/core": "^14.4.0",
