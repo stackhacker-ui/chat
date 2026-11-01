@@ -31,7 +31,7 @@
     "@iconify-json/lucide": "^1.2.148",
     "@iconify-json/simple-icons": "^1.2.101",
     "@libsql/client": "^0.18.0",
-    "@nuxt/icon": "^2.6.1",
+    "@nuxt/icon": "^2.6.2",
     "@nuxthub/core": "^0.10.12",
     "@nuxtjs/color-mode": "^4.1.0",
     "@nuxtjs/mdc": "^0.23.2",
