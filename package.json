@@ -28,7 +28,7 @@
     "@ai-sdk/gateway": "^3.0.226",
     "@ai-sdk/vue": "^3.0.320",
     "@iconify-json/logos": "^1.2.18",
-    "@iconify-json/lucide": "^1.2.149",
+    "@iconify-json/lucide": "^1.2.150",
     "@iconify-json/simple-icons": "^1.2.101",
     "@libsql/client": "^0.18.0",
     "@nuxt/icon": "^2.6.2",
