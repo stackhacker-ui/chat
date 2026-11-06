@@ -12,11 +12,11 @@ importers:
   .:
     dependencies:
       '@ai-sdk/gateway':
-        specifier: ^3.0.226
-        version: 3.0.226(zod@4.6.7)
+        specifier: ^3.0.228
+        version: 3.0.229(zod@4.6.7)
       '@ai-sdk/vue':
-        specifier: ^3.0.320
-        version: 3.0.320(vue@3.5.44(typescript@5.9.3))(zod@4.6.7)
+        specifier: ^3.0.322
+        version: 3.0.323(vue@3.5.44(typescript@5.9.3))(zod@4.6.7)
       '@iconify-json/logos':
         specifier: ^1.2.18
         version: 1.2.18
@@ -48,8 +48,8 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.5.44(typescript@5.9.3))
       ai:
-        specifier: ^6.0.320
-        version: 6.0.320(zod@4.6.7)
+        specifier: ^6.0.322
+        version: 6.0.323(zod@4.6.7)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -150,14 +150,14 @@ packages:
       bcrypt:
         optional: true
 
-  '@ai-sdk/gateway@3.0.226':
-    resolution: {integrity: sha512-8lSJyyWqzpzEgUWZwY7miqIsl9NZv6qtlaioK7GSnQTbQkX5T8PEVz8IxCCRAwFYpria5O0YqKaukuIgZemfpA==}
+  '@ai-sdk/gateway@3.0.229':
+    resolution: {integrity: sha512-SgKUfpP/18QpX1xrxGMuWb5Czy5CUzkYDXYzDUBvIKxbMqiGdFJnG/15xWIRyKYoXds0ha01cLhwbRV8Wjyikw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/provider-utils@4.0.63':
-    resolution: {integrity: sha512-QSrfUn7pnb+2EZLLtpkcY6208ZZVi15QEJFyp/1jAYEH2UecthgAsyYWOJbpMSLtraviCByd6ii2meISIhkTZA==}
+  '@ai-sdk/provider-utils@4.0.64':
+    resolution: {integrity: sha512-NQp/xAFHZbnWLHNjm8EjwUILgEpURsQnE416aO/PS3XrZ/PGfghEcXEcHXkXmIvB5Jem/9SPQxXnm/0wu7Emsg==}
     engines: {node: '>=18.17'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -166,8 +166,8 @@ packages:
     resolution: {integrity: sha512-5lWq7zSfRaU5ylDESn3sDQjgGl2AI1vjZKO/6JY3aFW70ct4zcP1kN+ZUYOuTXr28fVsYbyu2YFhddLdIgQFZQ==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/vue@3.0.320':
-    resolution: {integrity: sha512-bAb1/71KO+Gi13jtuCNpdODr+P+61zzdeOWr0FPw1SljbwF/SWEzTTX6lL+3CTe5vqVOW7dozvYqCdpqDtoTnw==}
+  '@ai-sdk/vue@3.0.323':
+    resolution: {integrity: sha512-FE9ZoWOgh/Lp7Vp/A8u/XsVG+R/WlPvE7y/nbhz7XeNyHzpr9xz+S9X4M03sAyGJTHQZ4LtXx2xo6iWgf/LPdg==}
     engines: {node: '>=18'}
     peerDependencies:
       vue: ^3.3.4
@@ -2760,8 +2760,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@6.0.320:
-    resolution: {integrity: sha512-TYPfDbhIDMJKMpMGFUmr5dxmerEWPODDAmcARyhlA1392Ru8p+hkWB67FnsC7yC9/T+jlilRZTEZHe/6yJAF2Q==}
+  ai@6.0.323:
+    resolution: {integrity: sha512-cdU/Cmzs4PYI6TPiCQytv5p54Bb1wVHVFhfVIEYbZA2aE2HfuCK1H1dzRapqOmbwN76cyNe0nU5zxxzesTBVjw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -6688,14 +6688,14 @@ snapshots:
       '@phc/format': 1.0.0
       '@poppinss/utils': 6.10.1
 
-  '@ai-sdk/gateway@3.0.226(zod@4.6.7)':
+  '@ai-sdk/gateway@3.0.229(zod@4.6.7)':
     dependencies:
       '@ai-sdk/provider': 3.0.19
-      '@ai-sdk/provider-utils': 4.0.63(zod@4.6.7)
+      '@ai-sdk/provider-utils': 4.0.64(zod@4.6.7)
       '@vercel/oidc': 3.2.0
       zod: 4.6.7
 
-  '@ai-sdk/provider-utils@4.0.63(zod@4.6.7)':
+  '@ai-sdk/provider-utils@4.0.64(zod@4.6.7)':
     dependencies:
       '@ai-sdk/provider': 3.0.19
       '@standard-schema/spec': 1.1.0
@@ -6707,10 +6707,10 @@ snapshots:
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/vue@3.0.320(vue@3.5.44(typescript@5.9.3))(zod@4.6.7)':
+  '@ai-sdk/vue@3.0.323(vue@3.5.44(typescript@5.9.3))(zod@4.6.7)':
     dependencies:
-      '@ai-sdk/provider-utils': 4.0.63(zod@4.6.7)
-      ai: 6.0.320(zod@4.6.7)
+      '@ai-sdk/provider-utils': 4.0.64(zod@4.6.7)
+      ai: 6.0.323(zod@4.6.7)
       swrv: 1.1.0(vue@3.5.44(typescript@5.9.3))
       vue: 3.5.44(typescript@5.9.3)
     transitivePeerDependencies:
@@ -9660,11 +9660,11 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@6.0.320(zod@4.6.7):
+  ai@6.0.323(zod@4.6.7):
     dependencies:
-      '@ai-sdk/gateway': 3.0.226(zod@4.6.7)
+      '@ai-sdk/gateway': 3.0.229(zod@4.6.7)
       '@ai-sdk/provider': 3.0.19
-      '@ai-sdk/provider-utils': 4.0.63(zod@4.6.7)
+      '@ai-sdk/provider-utils': 4.0.64(zod@4.6.7)
       '@opentelemetry/api': 1.9.0
       zod: 4.6.7
 
