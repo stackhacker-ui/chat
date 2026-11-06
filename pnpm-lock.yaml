@@ -133,7 +133,7 @@ importers:
         specifier: ^3.3.14
         version: 3.3.14(typescript@5.9.3)
       wrangler:
-        specifier: ^4.156.1
+        specifier: ^4.156.2
         version: 4.157.0(@types/node@24.19.2)
 
 packages:
