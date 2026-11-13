@@ -35,7 +35,7 @@
     "@nuxthub/core": "^0.10.12",
     "@nuxtjs/color-mode": "^4.1.0",
     "@nuxtjs/mdc": "^0.23.2",
-    "@vercel/blob": "^2.8.2",
+    "@vercel/blob": "^2.9.0",
     "@vueuse/core": "^14.4.0",
     "ai": "^6.0.326",
     "class-variance-authority": "^0.7.1",
