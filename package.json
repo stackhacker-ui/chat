@@ -27,7 +27,7 @@
   "dependencies": {
     "@ai-sdk/gateway": "^3.0.235",
     "@ai-sdk/vue": "^3.0.330",
-    "@iconify-json/logos": "^1.2.19",
+    "@iconify-json/logos": "^1.2.20",
     "@iconify-json/lucide": "^1.2.153",
     "@iconify-json/simple-icons": "^1.2.102",
     "@libsql/client": "^0.18.0",
