@@ -67,7 +67,7 @@
     "eslint": "^10.15.0",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.3.14",
-    "wrangler": "^4.166.0"
+    "wrangler": "^4.167.0"
   },
   "pnpm": {
     "overrides": {
