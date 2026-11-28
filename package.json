@@ -29,7 +29,7 @@
     "@ai-sdk/vue": "^3.0.336",
     "@iconify-json/logos": "^1.2.21",
     "@iconify-json/lucide": "^1.2.159",
-    "@iconify-json/simple-icons": "^1.2.103",
+    "@iconify-json/simple-icons": "^1.2.104",
     "@libsql/client": "^0.18.0",
     "@nuxt/icon": "^2.6.3",
     "@nuxthub/core": "^0.10.12",
