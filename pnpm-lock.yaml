@@ -21,7 +21,7 @@ importers:
         specifier: ^1.2.21
         version: 1.2.21
       '@iconify-json/lucide':
-        specifier: ^1.2.158
+        specifier: ^1.2.159
         version: 1.2.159
       '@iconify-json/simple-icons':
         specifier: ^1.2.103
